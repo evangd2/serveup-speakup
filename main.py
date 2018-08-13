@@ -72,11 +72,19 @@ class ServiceHandler(webapp2.RequestHandler):
         service_template = jinja_env.get_template("/templates/service.html")
         self.response.write(service_template.render())
 
+class EventsHandler(webapp2.RequestHandler):
+    def get(self):
+        events_template = jinja_env.get_template("/templates/events.html")
+        self.response.write(events_template.render())
+
+
 app = webapp2.WSGIApplication([
     ('/', LoginHandler),
     ('/welcome', WelcomeHandler),
     ('/news', NewsHandler),
     ('/representatives', RepHandler),
     ('/service', ServiceHandler),
+    ('/events', EventsHandler),
+
 
 ], debug=True)
