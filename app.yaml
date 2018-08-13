@@ -11,8 +11,6 @@ handlers:
   static_dir: styles
 - url: /media
   static_dir: media
-- url: /templates
-  static_dir: templates
 - url: /scripts
   static_dir: scripts
 - url: .*

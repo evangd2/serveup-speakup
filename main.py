@@ -47,11 +47,6 @@ class LoginHandler(webapp2.RequestHandler):
     self.response.write('Thanks for signing up, %s!' %
         user.name)
 
-
-
-
-
-
 app = webapp2.WSGIApplication([
-    ('/', LoginHandler),
+    ('/login', LoginHandler),
 ], debug=True)
