@@ -6,5 +6,21 @@
   </head>
   <body>
     <h1>Representatives</h1>
+    <form method="post" action="/representatives">
+      <p>Enter location below if it does not appear:</p><br>
+      <input type="text" name="location_input"></input>
+      <input type="Submit"></input>
+    </form>
+    <p>User Location: {{user_location}}</p>
+    <h1>Rep List</h1>
+      {%for office in offices%}
+        <h2>{{office["name"]}}</h2>
+          {%for index in office["officialIndices"]%}
+            {%set rep = officials[index]%}
+            <ul>
+              <li>{{rep["name"]}}</li>
+            </ul>
+          {%endfor%}
+      {%endfor%}
   </body>
 </html>
