@@ -71,20 +71,29 @@ class RepHandler(webapp2.RequestHandler):
         template_params = {"user_location": "", "rep_data":{}}
         user = User.get_by_id(users.get_current_user().user_id())
         rep_template = jinja_env.get_template("/templates/representatives.html")
-        if user.location:
+        if user.address:
             request_params = {
                 "key":ApiKey.query(ApiKey.name == "CIVIC_INFO").get().value,
-                "address":user.location,
+                "address":user.address,
                 "levels":"country",
                 "roles":["legislatorLowerBody", "legislatorUpperBody"]}
 
             template_params["rep_data"] = get_rep_data(request_params)
-            template_params["user_location"] = user.location
+            template_params["user_location"] = user.address
         self.response.write(rep_template.render(template_params))
     def post(self):
         user = User.get_by_id(users.get_current_user().user_id())
-        location = self.request.get("location_input")
-        user.location = location
+        address = ""
+        for key in addr_keys:
+            field = self.request.get(key)
+            if field:
+                if key == "state":
+                    address += field + " "
+                elif key == "zip":
+                    address += field
+                else:
+                    address += field + ", "
+        user.address = address
         user.put()
         self.redirect("/representatives")
 

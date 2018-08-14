@@ -5,7 +5,6 @@ from google.appengine.api import urlfetch
 #from collections import OrderedDict
 
 addr_keys = ["line1", "line2", "line3", "city", "state", "zip"]
-optional_keys = ["photoUrl"]
 
 def get_rep_data(request_params):
     encoded_params = urllib.urlencode(request_params, True)
@@ -19,4 +18,14 @@ def get_rep_data(request_params):
     return rep_data
 
 def format_addr(addr):
-    return ", ".join([addr[key] for key in addr_keys if key in addr])
+    address = ""
+    for key in addr_keys:
+        if key in addr:
+            field = addr[key]
+            if key == "state":
+                address += field + " "
+            elif key == "zip":
+                address += field
+            else:
+                address += field + ", "
+    return address
