@@ -2,18 +2,18 @@ import os
 import webapp2
 import jinja2
 import json
+
 from google.appengine.api import urlfetch
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from models import ApiKey
+import urllib
+from db_models import *
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
-
-class User(ndb.Model):
-    name = ndb.StringProperty()
 
 class LoginHandler(webapp2.RequestHandler):
   def get(self):
@@ -71,13 +71,40 @@ class NewsHandler(webapp2.RequestHandler):
 
 class RepHandler(webapp2.RequestHandler):
     def get(self):
+        template_params = {}
+        user = User.get_by_id(users.get_current_user().user_id())
         rep_template = jinja_env.get_template("/templates/representatives.html")
-        self.response.write(rep_template.render())
+        if user.location:
+            request_params = {
+                "key":"AIzaSyBpDquu-I2vFJUki2PtQhQG2Z8F371X-Fw",
+                "address":user.location,
+                "levels":"country",
+                "roles":["legislatorLowerBody", "legislatorUpperBody"]}
+            encoded_params = urllib.urlencode(request_params, True)
+            rep_data = urlfetch.fetch("https://www.googleapis.com/civicinfo/v2/representatives?{}"
+            .format(encoded_params)).content
+            rep_data = json.loads(rep_data)
+            template_params["offices"] = rep_data["offices"]
+            template_params["officials"] = rep_data["officials"]
+            template_params["user_location"] = user.location
+        self.response.write(rep_template.render(template_params))
+    def post(self):
+        user = User.get_by_id(users.get_current_user().user_id())
+        location = self.request.get("location_input")
+        user.location = location
+        user.put()
+        self.redirect("/representatives")
 
 class ServiceHandler(webapp2.RequestHandler):
     def get(self):
         service_template = jinja_env.get_template("/templates/service.html")
         self.response.write(service_template.render())
+
+class EventsHandler(webapp2.RequestHandler):
+    def get(self):
+        events_template = jinja_env.get_template("/templates/events.html")
+        self.response.write(events_template.render())
+
 
 app = webapp2.WSGIApplication([
     ('/', LoginHandler),
@@ -85,5 +112,7 @@ app = webapp2.WSGIApplication([
     ('/news', NewsHandler),
     ('/representatives', RepHandler),
     ('/service', ServiceHandler),
+    ('/events', EventsHandler),
+
 
 ], debug=True)
