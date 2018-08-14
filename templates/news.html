@@ -7,8 +7,19 @@
   <body>
     <h1>News</h1>
     <section>
+      <form name="category_form" method="get" action="/news">
+        <select name="category">
+          <option>Activism</option>
+          <option>Politics</option>
+          <option>Environment</option>
+          <option>Education</option>
+          <option>Justice</option>
+        </select>
+        <input type="submit" value="Submit">
+    </section>
+    <section>
       {% for article in news.articles %}
-      <p><h1><a href = "{{ article.url }}"> {{ article.title }} </a></h1> by {{ article.author }}</p>
+      <p><h1><a href="{{ article.url }}" target="_blank"> {{ article.title }} </a></h1> by {{ article.author }}</p>
       <p> {{ article.publishedAt }} </p>
       <p> {{ article.description }} </p>
       <hr>

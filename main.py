@@ -60,11 +60,10 @@ class WelcomeHandler(webapp2.RequestHandler):
 
 class NewsHandler(webapp2.RequestHandler):
     def get(self):
-        api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
-        category = "government"
-        print(api_key)
         news_template = jinja_env.get_template("/templates/news.html")
-        news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&articles&apikey={}".format(category, api_key))
+        api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
+        category = self.request.get("category")
+        news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&articles&apikey={}".format(category.lower(), api_key))
         self.response.write(news_template.render({ "news": json.loads(news.content.decode('utf-8')) }))
 
 class RepHandler(webapp2.RequestHandler):
