@@ -111,8 +111,8 @@ class EventsHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', LoginHandler),
-    ('/welcome', WelcomeHandler),
+    ('/', WelcomeHandler),
+    ('/login', LoginHandler),
     ('/news', NewsHandler),
     ('/representatives', RepHandler),
     ('/service', ServiceHandler),
