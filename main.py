@@ -6,8 +6,6 @@ from google.appengine.api import users
 from models import *
 from get_rep_data import *
 
-
-
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -63,7 +61,11 @@ class NewsHandler(webapp2.RequestHandler):
         news_template = jinja_env.get_template("/templates/news.html")
         api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
         category = self.request.get("category")
-        news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&pageSize=20&apikey={}".format(category.lower(), api_key))
+        news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
+        dict_news = json.loads(news.content)
+        if "totalResults" in dict_news:
+            if dict_news['totalResults'] < 4:
+                news = urlfetch.fetch("https://newsapi.org/v2/everything?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
         self.response.write(news_template.render({ "news": json.loads(news.content.decode('utf-8')) }))
 
 class RepHandler(webapp2.RequestHandler):
