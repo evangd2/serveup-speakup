@@ -6,10 +6,13 @@ import json
 from google.appengine.api import urlfetch
 from google.appengine.api import users
 from google.appengine.ext import ndb
+<<<<<<< HEAD
 
 from models import ApiKey
+=======
+from models import *
+>>>>>>> aedc67e305bf7f122233a3d1c9429b48c9897063
 import urllib
-from db_models import *
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -77,7 +80,7 @@ class RepHandler(webapp2.RequestHandler):
         rep_template = jinja_env.get_template("/templates/representatives.html")
         if user.location:
             request_params = {
-                "key":"AIzaSyBpDquu-I2vFJUki2PtQhQG2Z8F371X-Fw",
+                "key":ApiKey.query(ApiKey.name == "CIVIC_INFO").get().value,
                 "address":user.location,
                 "levels":"country",
                 "roles":["legislatorLowerBody", "legislatorUpperBody"]}
@@ -85,8 +88,7 @@ class RepHandler(webapp2.RequestHandler):
             rep_data = urlfetch.fetch("https://www.googleapis.com/civicinfo/v2/representatives?{}"
             .format(encoded_params)).content
             rep_data = json.loads(rep_data)
-            template_params["offices"] = rep_data["offices"]
-            template_params["officials"] = rep_data["officials"]
+            template_params["rep_data"] = rep_data
             template_params["user_location"] = user.location
         self.response.write(rep_template.render(template_params))
     def post(self):
