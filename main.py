@@ -83,8 +83,7 @@ class RepHandler(webapp2.RequestHandler):
             rep_data = urlfetch.fetch("https://www.googleapis.com/civicinfo/v2/representatives?{}"
             .format(encoded_params)).content
             rep_data = json.loads(rep_data)
-            template_params["offices"] = rep_data["offices"]
-            template_params["officials"] = rep_data["officials"]
+            template_params["rep_data"] = rep_data
             template_params["user_location"] = user.location
         self.response.write(rep_template.render(template_params))
     def post(self):

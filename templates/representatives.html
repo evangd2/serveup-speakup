@@ -13,10 +13,10 @@
     </form>
     <p>User Location: {{user_location}}</p>
     <h1>Rep List</h1>
-      {%for office in offices%}
+      {%for office in rep_data["offices"]%}
         <h2>{{office["name"]}}</h2>
           {%for index in office["officialIndices"]%}
-            {%set rep = officials[index]%}
+            {%set rep = rep_data["officials"][index]%}
             <ul>
               <li>{{rep["name"]}}</li>
             </ul>
