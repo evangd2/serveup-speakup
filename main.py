@@ -75,7 +75,7 @@ class RepHandler(webapp2.RequestHandler):
         rep_template = jinja_env.get_template("/templates/representatives.html")
         if user.location:
             request_params = {
-                "key":"AIzaSyBpDquu-I2vFJUki2PtQhQG2Z8F371X-Fw",
+                "key":ApiKey.query(ApiKey.name == "CIVIC_INFO").get().value,
                 "address":user.location,
                 "levels":"country",
                 "roles":["legislatorLowerBody", "legislatorUpperBody"]}
