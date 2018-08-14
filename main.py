@@ -6,6 +6,7 @@ import json
 from google.appengine.api import urlfetch
 from google.appengine.api import users
 from google.appengine.ext import ndb
+
 from models import ApiKey
 import urllib
 from db_models import *
@@ -63,10 +64,10 @@ class WelcomeHandler(webapp2.RequestHandler):
 class NewsHandler(webapp2.RequestHandler):
     def get(self):
         api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
-        source = "techcrunch"
+        category = "government"
         print(api_key)
         news_template = jinja_env.get_template("/templates/news.html")
-        news = urlfetch.fetch("https://newsapi.org/v1/articles?apikey={}&sortBy=latest&source={}".format(api_key, source))
+        news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&articles&apikey={}".format(category, api_key))
         self.response.write(news_template.render({ "news": json.loads(news.content.decode('utf-8')) }))
 
 class RepHandler(webapp2.RequestHandler):

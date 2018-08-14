@@ -7,10 +7,10 @@
   <body>
     <h1>News</h1>
     <section>
-      <p>Source: {{ news.source }}</p>
       {% for article in news.articles %}
-
-      <p>{{ article.title }} by {{ article.author }}
+      <p><h1><a href = "{{ article.url }}"> {{ article.title }} </a></h1> by {{ article.author }}</p>
+      <p> {{ article.publishedAt }} </p>
+      <p> {{ article.description }} </p>
       <hr>
       {% endfor %}
     </section>
