@@ -6,9 +6,8 @@ import json
 from google.appengine.api import urlfetch
 from google.appengine.api import users
 from google.appengine.ext import ndb
-from models import ApiKey
+from models import *
 import urllib
-from db_models import *
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
