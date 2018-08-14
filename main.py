@@ -68,7 +68,7 @@ class NewsHandler(webapp2.RequestHandler):
 
 class RepHandler(webapp2.RequestHandler):
     def get(self):
-        template_params = {}
+        template_params = {"user_location": "", "rep_data":{}}
         user = User.get_by_id(users.get_current_user().user_id())
         rep_template = jinja_env.get_template("/templates/representatives.html")
         if user.location:
@@ -77,11 +77,6 @@ class RepHandler(webapp2.RequestHandler):
                 "address":user.location,
                 "levels":"country",
                 "roles":["legislatorLowerBody", "legislatorUpperBody"]}
-
-            '''encoded_params = urllib.urlencode(request_params, True)
-            rep_data = urlfetch.fetch("https://www.googleapis.com/civicinfo/v2/representatives?{}"
-            .format(encoded_params)).content
-            rep_data = json.loads(rep_data)'''
 
             template_params["rep_data"] = get_rep_data(request_params)
             template_params["user_location"] = user.location
