@@ -7,7 +7,12 @@
   <body>
     <h1>News</h1>
     <section>
-      {{ articles }}
+      <p>Source: {{ news.source }}</p>
+      {% for article in news.articles %}
+
+      <p>{{ article.title }} by {{ article.author }}
+      <hr>
+      {% endfor %}
     </section>
   </body>
 </html>
