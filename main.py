@@ -6,12 +6,9 @@ import json
 from google.appengine.api import urlfetch
 from google.appengine.api import users
 from google.appengine.ext import ndb
-<<<<<<< HEAD
 
 from models import ApiKey
-=======
 from models import *
->>>>>>> aedc67e305bf7f122233a3d1c9429b48c9897063
 import urllib
 
 jinja_env = jinja2.Environment(
@@ -66,11 +63,10 @@ class WelcomeHandler(webapp2.RequestHandler):
 
 class NewsHandler(webapp2.RequestHandler):
     def get(self):
-        api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
-        category = "government"
-        print(api_key)
         news_template = jinja_env.get_template("/templates/news.html")
-        news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&articles&apikey={}".format(category, api_key))
+        api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
+        category = self.request.get("category")
+        news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&articles&apikey={}".format(category.lower(), api_key))
         self.response.write(news_template.render({ "news": json.loads(news.content.decode('utf-8')) }))
 
 class RepHandler(webapp2.RequestHandler):
