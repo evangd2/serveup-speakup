@@ -13,3 +13,9 @@
 #Footer{
   background-color: rgb(179, 0, 0);
 }
+
+#Content_left, #Content_right {
+  background-image: url(http://longwallpapers.com/Desktop-Wallpaper/red-texture-wallpapers-high-definition-For-Desktop-Wallpaper.jpg);
+  opacity: 0.5;
+  grid-row: 3;
+}
