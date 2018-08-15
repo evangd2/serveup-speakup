@@ -135,3 +135,9 @@ body{
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
+
+
+#Home, #Service, #Reps, #News, #Events, #Content_left, #Content_right{
+  background-size: cover;
+  background-repeat: no-repeat;
+}

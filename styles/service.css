@@ -139,4 +139,6 @@ body{
 
 #Home, #Service, #Reps, #News, #Events{
   font-family: 'Josefin Sans', sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
