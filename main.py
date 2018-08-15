@@ -51,7 +51,7 @@ class LoginHandler(webapp2.RequestHandler):
     self.response.write('Thanks for signing up, %s!' %
         user.name)
 
-class WelcomeHandler(webapp2.RequestHandler):
+class HomeHandler(webapp2.RequestHandler):
     def get(self):
         welcome_template = jinja_env.get_template("/templates/welcome.html")
         self.response.write(welcome_template.render())
@@ -111,7 +111,8 @@ class EventsHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', WelcomeHandler),
+    ('/', HomeHandler),
+    ('/home', HomeHandler),
     ('/login', LoginHandler),
     ('/news', NewsHandler),
     ('/representatives', RepHandler),
