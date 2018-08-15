@@ -116,7 +116,8 @@ class EventsHandler(webapp2.RequestHandler):
             self.redirect("/login")
 
 app = webapp2.WSGIApplication([
-    ('/', LoginHandler),
+    ('/', HomeHandler),
+    ('/login', LoginHandler),
     ('/welcome', HomeHandler),
     ('/news', NewsHandler),
     ('/representatives', RepHandler),
