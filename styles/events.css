@@ -1,32 +1,14 @@
-#img {
-    opacity: 0.5;
-  filter: alpha(opacity=50);}
-
 #Title {
   background-color: rgb(255, 255, 128);
-  grid-column: 1 / span 8;
-  grid-row: 1 / span 2;
-  color: white;
-  font-family: 'Dancing Script', cursive;
-  font-size: 35px;
-  text-shadow: 1px 1px 5px black;
-
-}
-
-a{
-  text-decoration: none;
-  color: inherit;
-  text-shadow: 1px 1px 1px black;
 }
 
 #User {
   background-color: lavender;
-  grid-column: 1 / span 3;
-  grid-row: 3;
 }
 
 #Content{
   background-color: rgb(255, 255, 204);
+<<<<<<< HEAD
   grid-column: 2 / span 6;
   grid-row: 4 / span 6;
 
@@ -40,15 +22,13 @@ a{
 
 #Content_left{
   grid-column: 1;
+=======
+>>>>>>> 19700f46922c3a227e1932a55d53f2129958b57d
 }
-
-#Content_right{
-  grid-column: 8;
-}
-
 
 #Footer{
   background-color: rgb(255, 255, 128);
+<<<<<<< HEAD
   grid-column: 1/ span 8;
   grid-row: 8;
 }
@@ -131,6 +111,8 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+=======
+>>>>>>> 19700f46922c3a227e1932a55d53f2129958b57d
 }
 
 #Home, #Service, #Reps, #News, #Events, #Content_left, #Content_right{

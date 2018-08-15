@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/styles/master.css">
     <link rel="stylesheet" href="/styles/representatives.css">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
   </head>
   <body>
-    
+
     <div id="Title">
       <h1> Serve Up, Speak Up ~ Representatives</h1>
     </div>
@@ -34,11 +34,11 @@
       <h1>Representatives</h1>
       <form method="post" action="/representatives">
         <p>Enter complete address below if it does not appear:</p>
-        <input type="text" name="line1" placeholder="Street Line 1">
+        <input type="text" name="line1" placeholder="Street Line 1" required>
         <input type="text" name="line2" placeholder="Street Line 2 (If Needed)">
         <input type="text" name="line3" placeholder="Street Line 3 (If Needed)">
-        <input type="text" name="city" placeholder="City">
-        <select name="state">
+        <input type="text" name="city" placeholder="City" required>
+        <select name="state" required>
           <option value="">State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -91,7 +91,7 @@
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-        <input type="text" name="zip" placeholder="5-Digit ZIP" maxlength="5">
+        <input type="text" name="zip" placeholder="5-Digit ZIP" maxlength="5" required>
         <input type="submit" value="Set Address"></input>
       </form>
       <p>User address: {{user_location}}</p>
