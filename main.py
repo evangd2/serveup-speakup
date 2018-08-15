@@ -13,31 +13,22 @@ jinja_env = jinja2.Environment(
 
 class LoginHandler(webapp2.RequestHandler):
   def get(self):
-    user = users.get_current_user()
-    if user:
-      email_address = user.nickname()
-      user = User.get_by_id(user.user_id())
-      signout_link_html = '<a href="%s">sign out</a>' % (
-          users.create_logout_url('/'))
-      if user:
-        self.response.write('''
-            Welcome %s (%s)! <br> %s <br>''' % (
-              user.name,
-              email_address,
-              signout_link_html))
+    google_user = users.get_current_user()
+    template = jinja_env.get_template("templates/login.html")
+    if google_user:
+      email_address = google_user.nickname()
+      ds_user = User.get_by_id(google_user.user_id())
+      if ds_user:
+          self.redirect("/welcome")
       else:
-        self.response.write('''
-            Welcome to our site, %s!  Please sign up! <br>
-            <form method="post" action="/login">
-            <input type="text" name="name">
-            <input type="submit">
-            </form><br> %s <br>
-            ''' % (email_address, signout_link_html))
+        self.response.write(template.render({
+            "email_address": email_address,
+            "signout_link": users.create_logout_url("/login")
+            }))
     else:
-      self.response.write('''
-        Please log in! <br>
-        <a href="%s">Sign in</a>''' % (
-          users.create_login_url('/')))
+      self.response.write(template.render({
+          "signin_link": users.create_login_url("/login")
+          }))
 
   def post(self):
     user = users.get_current_user()
@@ -48,8 +39,7 @@ class LoginHandler(webapp2.RequestHandler):
         name=self.request.get('name'),
         id=user.user_id())
     user.put()
-    self.response.write('Thanks for signing up, %s!' %
-        user.name)
+    self.redirect("/welcome")
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -58,31 +48,42 @@ class HomeHandler(webapp2.RequestHandler):
 
 class NewsHandler(webapp2.RequestHandler):
     def get(self):
-        news_template = jinja_env.get_template("/templates/news.html")
-        api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
-        category = self.request.get("category")
-        news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
-        dict_news = json.loads(news.content)
-        if "totalResults" in dict_news:
-            if dict_news['totalResults'] < 3:
-                news = urlfetch.fetch("https://newsapi.org/v2/everything?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
-        self.response.write(news_template.render({ "news": json.loads(news.content.decode('utf-8')) }))
+        google_user = users.get_current_user()
+        if google_user:
+            news_template = jinja_env.get_template("/templates/news.html")
+            api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
+            category = self.request.get("category")
+            news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
+            dict_news = json.loads(news.content)
+            if "totalResults" in dict_news:
+                if dict_news['totalResults'] < 3:
+                    news = urlfetch.fetch("https://newsapi.org/v2/everything?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
+            self.response.write(news_template.render({ "news": json.loads(news.content.decode('utf-8')) }))
+        else:
+            self.redirect("/login")
 
 class RepHandler(webapp2.RequestHandler):
     def get(self):
-        template_params = {"user_location": "", "rep_data":{}}
-        user = User.get_by_id(users.get_current_user().user_id())
-        rep_template = jinja_env.get_template("/templates/representatives.html")
-        if user.address:
-            request_params = {
-                "key":ApiKey.query(ApiKey.name == "CIVIC_INFO").get().value,
-                "address":user.address,
-                "levels":"country",
-                "roles":["legislatorLowerBody", "legislatorUpperBody"]}
+        google_user = users.get_current_user()
+        if google_user:
+            user = User.get_by_id(google_user.user_id())
+            if user:
+                template_params = {"user_location": "", "rep_data":{}}
+                rep_template = jinja_env.get_template("/templates/representatives.html")
+                if user.address:
+                    request_params = {
+                        "key":ApiKey.query(ApiKey.name == "CIVIC_INFO").get().value,
+                        "address":user.address,
+                        "levels":"country",
+                        "roles":["legislatorLowerBody", "legislatorUpperBody"]}
 
-            template_params["rep_data"] = get_rep_data(request_params)
-            template_params["user_location"] = user.address
-        self.response.write(rep_template.render(template_params))
+                    template_params["rep_data"] = get_rep_data(request_params)
+                    template_params["user_location"] = user.address
+                self.response.write(rep_template.render(template_params))
+            else:
+                self.redirect("/login")
+        else:
+            self.redirect("/login")
     def post(self):
         user = User.get_by_id(users.get_current_user().user_id())
         address = ""
@@ -101,17 +102,25 @@ class RepHandler(webapp2.RequestHandler):
 
 class ServiceHandler(webapp2.RequestHandler):
     def get(self):
-        service_template = jinja_env.get_template("/templates/service.html")
-        self.response.write(service_template.render())
+        google_user = users.get_current_user()
+        if google_user:
+            service_template = jinja_env.get_template("/templates/service.html")
+            self.response.write(service_template.render())
+        else:
+            self.redirect("/login")
 
 class EventsHandler(webapp2.RequestHandler):
     def get(self):
-        events_template = jinja_env.get_template("/templates/events.html")
-        self.response.write(events_template.render())
-
+        google_user = users.get_current_user()
+        if google_user:
+            events_template = jinja_env.get_template("/templates/events.html")
+            self.response.write(events_template.render())
+        else:
+            self.redirect("/login")
 
 app = webapp2.WSGIApplication([
-    ('/', LoginHandler),
+    ('/', HomeHandler),
+    ('/login', LoginHandler),
     ('/welcome', HomeHandler),
     ('/news', NewsHandler),
     ('/representatives', RepHandler),
