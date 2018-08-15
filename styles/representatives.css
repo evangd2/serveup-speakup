@@ -2,20 +2,10 @@
   background-color: rgb(57, 0, 115);
 }
 
-#User {
-  background-color: lavender;
-}
-
 #Content{
   background-color: rgb(238, 230, 255);
 }
 
 #Footer{
   background-color: rgb(57, 0, 115);
-}
-
-
-#Home, #Service, #Reps, #News, #Events, #Content_left, #Content_right{
-  background-size: cover;
-  background-repeat: no-repeat;
 }

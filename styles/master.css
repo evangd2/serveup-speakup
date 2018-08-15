@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Dancing+Script");
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 
-#Home, #Service, #Reps, #News, #Events{
+#Home, #Service, #Reps, #News, #Events, #Content_left, #Content_right{
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: 'Josefin Sans', sans-serif;
 }
+
 #img {
     opacity: 0.5;
   filter: alpha(opacity=50);}
@@ -25,6 +28,7 @@ a{
 }
 
 #User {
+  background-color: lavender;
   grid-column: 1 / span 3;
   grid-row: 2;
 }

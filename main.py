@@ -28,7 +28,7 @@ class LoginHandler(webapp2.RequestHandler):
       else:
         self.response.write('''
             Welcome to our site, %s!  Please sign up! <br>
-            <form method="post" action="/">
+            <form method="post" action="/login">
             <input type="text" name="name">
             <input type="submit">
             </form><br> %s <br>
