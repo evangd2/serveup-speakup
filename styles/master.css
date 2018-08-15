@@ -43,7 +43,7 @@ a{
 #Content{
   grid-column: 2 / span 6;
   grid-row: 3;
-  overflow: auto;
+  overflow: none;
   text-align: center;
   font-family: 'Raleway', sans-serif;
 
@@ -142,5 +142,5 @@ body{
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 200px 1fr 4fr 1fr;
+  grid-template-rows: 2fr 1fr 4fr 1fr;
 }
