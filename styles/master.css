@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 
 #Home, #Service, #Reps, #News, #Events, #Content_left, #Content_right{
-  background-size: cover;
+  background-size:cover;
   background-repeat: no-repeat;
   font-family: 'Josefin Sans', sans-serif;
 }
