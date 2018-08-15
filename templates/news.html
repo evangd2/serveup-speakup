@@ -3,27 +3,72 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/news.css">
   </head>
   <body>
-    <h1>News</h1>
-    <section>
-      <form name="category_form" method="get" action="/news">
-        <select name="category">
-          <option>Activism</option>
-          <option>Politics</option>
-          <option>Environment</option>
-          <option>Education</option>
-          <option>Social Justice</option>
-        </select>
-        <input type="submit" value="Submit">
-    </section>
-    <section>
-      {% for article in news.articles %}
-      <p><h1><a href="{{ article.url }}" target="_blank"> {{ article.title }} </a></h1> by {{ article.author }}</p>
-      <p> {{ article.publishedAt }} </p>
-      <p> {{ article.description }} </p>
-      <hr>
-      {% endfor %}
-    </section>
+
+
+
+      <div id="Title">
+        <h1> Serve Up, Speak Up ~ News</h1>
+      </div>
+     <div id="Home" class="menu">
+          <h3> <a href= "/home"> Home </a> </h3>
+       </div>
+     <div id="Events" class="menu">
+          <h3> <a href= "/events"> Events </a></h3>
+       </div>
+     <div id="News" class="menu">
+          <h3> <a href= "/news">News </a> </h3>
+       </div>
+     <div id="Service" class="menu">
+          <h3> <a href= "/service"> Volunteer </a> </h3>
+       </div>
+      <div id="Reps" class="menu">
+          <h3><a href= "/representatives"> Representatives </a> </h3>
+       </div>
+      <div id="User">
+          <h3> User Info: pic/logout/username </h3>
+       </div>
+      <div id="Content">
+        <h1>News</h1>
+        <section>
+          <form name="category_form" method="get" action="/news">
+            <select name="category">
+              <option>Activism</option>
+              <option>Politics</option>
+              <option>Environment</option>
+              <option>Education</option>
+              <option>Social Justice</option>
+            </select>
+            <input type="submit" value="Submit">
+        </section>
+        <section>
+          {% for article in news.articles %}
+          <p><h1><a href="{{ article.url }}" target="_blank"> {{ article.title }} </a></h1> by {{ article.author }}</p>
+          <p> {{ article.publishedAt }} </p>
+          <p> {{ article.description }} </p>
+          <hr>
+          {% endfor %}
+        </section>
+       </div>
+      <div id="Content_left">
+        </div>
+      <div id="Content_right">
+      </div>
+      <div id="Footer"> (Footer) </div>
+
+
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>
