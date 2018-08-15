@@ -67,18 +67,21 @@ class RepHandler(webapp2.RequestHandler):
         google_user = users.get_current_user()
         if google_user:
             user = User.get_by_id(google_user.user_id())
-            template_params = {"user_location": "", "rep_data":{}}
-            rep_template = jinja_env.get_template("/templates/representatives.html")
-            if user.address:
-                request_params = {
-                    "key":ApiKey.query(ApiKey.name == "CIVIC_INFO").get().value,
-                    "address":user.address,
-                    "levels":"country",
-                    "roles":["legislatorLowerBody", "legislatorUpperBody"]}
+            if user:
+                template_params = {"user_location": "", "rep_data":{}}
+                rep_template = jinja_env.get_template("/templates/representatives.html")
+                if user.address:
+                    request_params = {
+                        "key":ApiKey.query(ApiKey.name == "CIVIC_INFO").get().value,
+                        "address":user.address,
+                        "levels":"country",
+                        "roles":["legislatorLowerBody", "legislatorUpperBody"]}
 
-                template_params["rep_data"] = get_rep_data(request_params)
-                template_params["user_location"] = user.address
-            self.response.write(rep_template.render(template_params))
+                    template_params["rep_data"] = get_rep_data(request_params)
+                    template_params["user_location"] = user.address
+                self.response.write(rep_template.render(template_params))
+            else:
+                self.redirect("/login")
         else:
             self.redirect("/login")
     def post(self):
