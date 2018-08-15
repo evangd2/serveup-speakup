@@ -62,7 +62,8 @@ a{
 
 #Footer{
   grid-column: 1/ span 8;
-  grid-row: 4;  
+  grid-row: 4;
+  font-size: 9px;
 }
 
 #Events{
