@@ -12,11 +12,11 @@
     <div class="content">
       {%if email_address%}
         <form method="post" action="/login">
-          <p>Welcome to our site, {{email_address}}! Please sign up!</p>
+          <p id="welcome_line">Welcome to our site, {{email_address}}! Please sign up and enter username below.</p>
           <input type="text" name="name">
-          <input type="submit">
+          <input id="button" type="submit">
         </form>
-        <a href="{{signout_link}}">Sign Out</a>
+        <a id="sign_out" href="{{signout_link}}">Sign Out</a>
       {%else%}
         <p id="login_title">Serve Up, Speak Up</p>
         <img src="media/logo.png">
