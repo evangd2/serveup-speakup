@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/styles/login.css">
     <title></title>
   </head>
   <body>
@@ -13,7 +14,8 @@
       </form>
       <a href="{{signout_link}}">Sign Out</a>
     {%else%}
-      <a href="{{signin_link}}">Sign In</a>
+      <p id="login_title">Serve Up, Speak Up</p>
+      <a id="sign_in" href="{{signin_link}}">Sign In</a>
     {%endif%}
   </body>
 </html>
