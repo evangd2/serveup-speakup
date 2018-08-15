@@ -15,7 +15,6 @@ def get_rep_data(request_params):
         for rep in rep_data["officials"]:
             rep["address"] = "; ".join([ format_addr(addr) for addr in rep["address"] ])
             rep["phones"] = ", ".join(rep["phones"])
-            rep["urls"] = ", ".join(rep["urls"])
         return rep_data
     else:
         return {}
