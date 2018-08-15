@@ -7,23 +7,29 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   background-attachment: fixed;
+  height: 100vh;
 }
-#sign_in, #login_title {
+#sign_in, #login_title, #welcome_line, #sign_out {
   text-shadow: 1px 1px 1px blue;
+  color: black;
 }
 #sign_in {
   text-decoration: none;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   float: center;
-  color: black;
   font-size: 70px;
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
   text-align: center;
 }
-#sign_in:hover {
+#sign_in:hover, #sign_out:hover {
   color: blue;
   text-shadow: 1px 1px 1px black;
+}
+#sign_out {
+  text-decoration: none;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 20px;
 }
 #login_title {
   color: black;
@@ -32,9 +38,21 @@ body {
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
 }
+p {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
 img {
   height: 100px;
   width: 100px;
   grid-column: 3 / span 1;
   grid-row: 1 / span 1;
+}
+#button {
+  color: black;
+  text-align: center;
+  background-color: white;
+  border: 1px 1px black;
+  cursor: pointer;
 }
