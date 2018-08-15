@@ -133,5 +133,5 @@ body{
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr 4fr 1fr;
+  grid-template-rows: 100px 1fr 4fr 1fr;
 }
