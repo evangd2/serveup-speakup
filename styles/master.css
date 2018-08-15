@@ -1,10 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Dancing+Script");
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,700');
 
 #Home, #Service, #Reps, #News, #Events, #Content_left, #Content_right{
-  background-size:cover;
+  background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Josefin Sans', sans-serif;
+}
+
+#Home, #Service, #Reps, #News, #Events{
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+
 }
 
 #img {
@@ -15,10 +21,11 @@
   grid-column: 1 / span 8;
   grid-row: 1;
   color: white;
-  font-family: 'Dancing Script', cursive;
-  font-size: 18px;
+  font-size: 45px;
   text-shadow: 1px 1px 5px black;
-
+  font-family: 'Dancing Script', bold;
+  padding-top: 0px;
+  padding-bottom: 20px;
 }
 
 a{
@@ -38,6 +45,8 @@ a{
   grid-row: 3;
   overflow: auto;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
+
 }
 
 
