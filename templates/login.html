@@ -5,11 +5,15 @@
     <title></title>
   </head>
   <body>
-    Welcome to our site, {{username}}!  Please sign up! <br>
-      <form method="post" action="/">
-      <input type="text" name="name">
-      <input type="submit">
-      </form><br>
-    <a href="/welcome">Continue to site</a>
+    {%if email_address%}
+      <form method="post" action="/login">
+        <p>Welcome to our site, {{email_address}}! Please sign up!</p>
+        <input type="text" name="name">
+        <input type="submit">
+      </form>
+      <a href="{{signout_link}}">Sign Out</a>
+    {%else%}
+      <a href="{{signin_link}}">Sign In</a>
+    {%endif%}
   </body>
 </html>
