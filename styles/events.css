@@ -8,12 +8,12 @@
 
 #Footer{
   background-color: rgb(230, 230, 0);
-  
+
 }
 
 #Content_left, #Content_right {
     background-image: url(https://images.all-free-download.com/images/graphicthumb/golden_texture_hd_picture_3_170578.jpg);
     /* background-image: url(https://images.unsplash.com/photo-1445510491599-c391e8046a68?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=406fd63cfb1c6a08360d2e609951b54a&auto=format&fit=crop&w=1050&q=80); */
     opacity: 0.5;
-    grid-row: 3;
+    grid-row: 4;
   }
