@@ -1,0 +1,142 @@
+#img {
+    opacity: 0.5;
+  filter: alpha(opacity=50);}
+
+#Title {
+  background-color: rgb(0, 179, 179);
+  grid-column: 1 / span 8;
+  grid-row: 1 / span 2;
+  color: white;
+  font-family: 'Dancing Script', cursive;
+  font-size: 35px;
+  text-shadow: 1px 1px 5px black;
+
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  text-shadow: 1px 1px 1px black;
+}
+
+#User {
+  background-color: lavender;
+  grid-column: 1 / span 3;
+  grid-row: 3;
+}
+
+#Content{
+  background-color: rgb(204, 255, 255);
+  grid-column: 2 / span 6;
+  grid-row: 4 / span 6;
+
+}
+
+#Content_left, #Content_right {
+    background-image: url(https://images.unsplash.com/photo-1500537288928-5a596074a086?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92c080b688935fac9652af77a81e7cf1&auto=format&fit=crop&w=1055&q=80);
+  background-size: 1000px;
+  opacity: 0.5;
+
+  grid-row: 4 / span 4;
+}
+
+#Content_left{
+  grid-column: 1;
+}
+
+#Content_right{
+  grid-column: 8;
+}
+
+
+#Footer{
+  background-color: rgb(0, 179, 179);
+  grid-column: 1/ span 8;
+  grid-row: 8;
+}
+
+#Events{
+  background-color: yellow;
+  grid-column: 8;
+  grid-row: 3;
+  color: white;
+   background-image: url(https://images.pexels.com/photos/768897/pexels-photo-768897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-size: 150px
+}
+
+#News{
+  background-color: red;
+  grid-column: 7;
+  grid-row: 3;
+  color: white;
+  background-image: url(https://images.pexels.com/photos/1083895/pexels-photo-1083895.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-size: 150px;
+}
+
+#Reps{
+  background-color: purple;
+  grid-column: 6;
+  grid-row: 3;
+  color: white;
+  background-color: white;
+  background-image: url(https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-size: 250px;
+
+}
+
+.menu:hover {
+  opacity: 0.6;
+  transition: 1s;
+}
+
+.menu{
+  text-shadow: 1px 1px 5px black;
+}
+
+
+#Service{
+  background-color: lightblue;
+  grid-column: 5;
+  grid-row: 3;
+  color: white;
+  background-image: url(https://images.pexels.com/photos/60005/forget-me-not-flower-meadow-wild-flower-60005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-size: 150px
+
+}
+
+#Home{
+  background-color: green;
+  grid-column: 4;
+  grid-row: 3;
+  color: white;
+ background-image: url(https://images.pexels.com/photos/580900/pexels-photo-580900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-size: 150px
+
+}
+
+div {
+  font-family: Palatino Linotype;
+  text-align: center;
+  padding: 8px;
+  border: 2px solid white;
+  border-image-source:
+  grid-gap: 5px;
+
+}
+
+
+
+body{
+
+  background-image-opacity: 0.5;
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+#Home, #Service, #Reps, #News, #Events{
+  font-family: 'Josefin Sans', sans-serif;
+}
