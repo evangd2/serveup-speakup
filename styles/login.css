@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Concert+One');
+
+body {
+  background-image: url("http://bdfjade.com/data/out/56/5631356-background-image.png");
+}
+#sign_in, #login_title {
+  font-family: 'Concert One', cursive;
+  text-shadow: 1px 1px 1px blue;
+}
+#sign_in {
+  text-decoration: none;
+  float: center;
+  color: black;
+  font-size: 90px;
+}
+#sign_in:hover {
+  color: blue;
+  text-shadow: 1px 1px 1px black;
+}
+#login_title {
+  color: black;
+  text-align: center;
+  font-size: 100px;
+}
