@@ -19,7 +19,7 @@ class LoginHandler(webapp2.RequestHandler):
       email_address = google_user.nickname()
       ds_user = User.get_by_id(google_user.user_id())
       if ds_user:
-          self.redirect("/home")
+          self.redirect("/welcome")
       else:
         self.response.write(template.render({
             "email_address": email_address,
@@ -39,7 +39,7 @@ class LoginHandler(webapp2.RequestHandler):
         name=self.request.get('name'),
         id=user.user_id())
     user.put()
-    self.redirect("/home")
+    self.redirect("/welcome")
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
