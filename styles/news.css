@@ -1,5 +1,6 @@
 #Title {
   background-color: rgb(179, 0, 0);
+
 }
 
 #User {
@@ -8,6 +9,7 @@
 
 #Content{
   background-color: rgb(255, 179, 179);
+  height: 80vh;
 }
 
 #Footer{
@@ -17,5 +19,11 @@
 #Content_left, #Content_right {
   background-image: url(http://longwallpapers.com/Desktop-Wallpaper/red-texture-wallpapers-high-definition-For-Desktop-Wallpaper.jpg);
   opacity: 0.5;
-  grid-row: 3;
+  grid-row: 4;
 }
+
+
+
+
+/* ALL SHOULD BE IN GRID ROW 4 FOR CONTENT R AND L */
+/* FIGURE OUT WHAT HAPPENS TO THE HEADER OML */
