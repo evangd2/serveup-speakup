@@ -75,6 +75,7 @@ a{
   grid-column: 1/ span 8;
   grid-row: 8;
   font-size: 9px;
+  font-family: Arial;
 }
 
 #Events{
