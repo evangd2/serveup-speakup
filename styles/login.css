@@ -1,17 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa|Concert+One');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
 body {
   background-image: url("http://bdfjade.com/data/out/56/5631356-background-image.png");
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-attachment: fixed;
 }
 #sign_in, #login_title {
-  font-family: 'Concert One', cursive;
   text-shadow: 1px 1px 1px blue;
 }
 #sign_in {
   text-decoration: none;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   float: center;
   color: black;
-  font-size: 90px;
+  font-size: 70px;
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  text-align: center;
 }
 #sign_in:hover {
   color: blue;
@@ -19,6 +27,14 @@ body {
 }
 #login_title {
   color: black;
-  text-align: center;
   font-size: 100px;
+  font-family: 'Dancing Script', cursive;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 1;
+}
+img {
+  height: 100px;
+  width: 100px;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
 }
