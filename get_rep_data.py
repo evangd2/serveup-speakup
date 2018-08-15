@@ -11,11 +11,14 @@ def get_rep_data(request_params):
     rep_data = urlfetch.fetch("https://www.googleapis.com/civicinfo/v2/representatives?{}"
     .format(encoded_params)).content
     rep_data = json.loads(rep_data)
-    for rep in rep_data["officials"]:
-        rep["address"] = "; ".join([ format_addr(addr) for addr in rep["address"] ])
-        rep["phones"] = ", ".join(rep["phones"])
-        rep["urls"] = ", ".join(rep["urls"])
-    return rep_data
+    if "error" not in rep_data:
+        for rep in rep_data["officials"]:
+            rep["address"] = "; ".join([ format_addr(addr) for addr in rep["address"] ])
+            rep["phones"] = ", ".join(rep["phones"])
+            rep["urls"] = ", ".join(rep["urls"])
+        return rep_data
+    else:
+        return {}
 
 def format_addr(addr):
     address = ""
