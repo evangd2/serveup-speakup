@@ -11,6 +11,18 @@
 
 }
 
+.title {
+  font-family: 'Dancing Script', bold;
+  font-size: 40px;
+  color: black;
+}
+
+#plant{
+  position: absolute;
+  height: 15%;
+  width: 10%;
+}
+
 #img {
   opacity: 0.5;
   filter: alpha(opacity=50);}
