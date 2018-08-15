@@ -8,3 +8,11 @@
 
 #Footer{
   background-color: rgb(0, 179, 179);
+}
+
+
+#Content_left, #Content_right {
+  background-image: url(https://image.freepik.com/free-photo/texture-with-blue-paint_1048-5111.jpg);
+  opacity: 0.5;
+  grid-row: 3;
+}
