@@ -57,7 +57,7 @@ a{
   text-align: center;
 
 }
-/* MAYBE DELETE THIS????????????? */
+
 #Content_left, #Content_right {
   grid-row: 4 / span 4;
 }
