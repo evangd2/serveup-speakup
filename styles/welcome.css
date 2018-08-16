@@ -2,6 +2,16 @@
   background-color: rgb(79, 153, 0);
 }
 
+#User {
+  grid-template-rows: 1fr 1fr 2fr;
+  grid-template-columns: 3fr 2fr;
+}
+
+#profile_pic{
+  grid-row:1 / span 3;
+  grid-column: 1;
+}
+
 #Content{
   background-color: rgb(206, 255, 153);
   height: 1000px;

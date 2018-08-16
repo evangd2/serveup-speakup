@@ -35,8 +35,15 @@
      </div>
 
 <div id="User">
-      <h3> Signed in as: {{username}} </h3>
-      <a href="{{signout_link}}">Sign Out</a>
+      <div id="profile_pic">
+        <img src="/media/plant.png" />
+      </div>
+      <div id="signed_in"><strong> Signed in as: {{username}} </strong></div>
+      <div><a href="{{signout_link}}">Sign Out</a></div>
+      <div><form method="post" action="/welcome" enctype="multipart/form-data">
+        <div><input type="file" name="upload_photo"></div>
+        <div><input type="submit" value="Change profile photo"></div>
+      </form></div>
      </div>
 
 <div id="Content">
