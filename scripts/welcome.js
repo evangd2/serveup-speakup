@@ -1,14 +1,5 @@
 const items = document.querySelectorAll("div.menu");
 
-// alert(items.length);
-
-
-// const navItems = document.querySelectorAll("News");
-//
-// alert(navItems.length)
-
-// items.forEach(item => item.addEventListener("hover", show));
-
 let item = null;
 
 item = document.querySelector("div#Events");
@@ -48,13 +39,8 @@ for (let i = 0; i < items.length; i++) {
 console.log(originals);
 
 for (let i = 0; i < items.length; i++) {
-  // alert("HELLO: " + i);
   console.log(items[i].style);
-
-  // Save the original image to be restored on mouseout
   originals[i] = items[i].style.backgroundImage;
-
-  // Add listener to each element on mouseover
   items[i].addEventListener("mouseover", function() {
     console.log("you hovered over item number " + i);
     console.log(items[i].style.backgroundImage);
@@ -62,13 +48,9 @@ for (let i = 0; i < items.length; i++) {
     console.log("ID: " + items[i].id);
     const id = items[i].id;
 
-    // items[i].style.backgroundImage = "url('/media/events.png')";
     items[i].style.backgroundImage = "url('" + swappers[id] + "')";
-    // items[i].style.width = "100%";
-    // items[i].style.height = "100%";
 
     console.log(items[i].style.backgroundImage);
-    // items[i].style.width = "0px";
   });
 }
 
@@ -76,17 +58,9 @@ console.log(originals);
 
 
 for (let i = 0; i < items.length; i++) {
-  // alert("HELLO: " + i);
   items[i].addEventListener("mouseout", function() {
     console.log("you mouse out'ed out of item number " + i);
     items[i].style.backgroundImage = originals[i];
-    // items[i].style.width = "50%";
-    // items[i].style.height = "50%";
+
   });
 }
-//
-// function show(event) {
-//   alert("hello");
-//   const filename = event.target.innerHTML;
-//     content.innerHTML = `<img src="events.png">`;
-// }
