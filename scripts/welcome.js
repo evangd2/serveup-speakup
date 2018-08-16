@@ -40,6 +40,7 @@ swappers = {
 
 
 
+
 var originals = []
 for (let i = 0; i < items.length; i++) {
   originals[i] = "";
@@ -63,7 +64,8 @@ for (let i = 0; i < items.length; i++) {
 
     // items[i].style.backgroundImage = "url('/media/events.png')";
     items[i].style.backgroundImage = "url('" + swappers[id] + "')";
-
+    // items[i].style.width = "100%";
+    // items[i].style.height = "100%";
 
     console.log(items[i].style.backgroundImage);
     // items[i].style.width = "0px";
@@ -78,6 +80,8 @@ for (let i = 0; i < items.length; i++) {
   items[i].addEventListener("mouseout", function() {
     console.log("you mouse out'ed out of item number " + i);
     items[i].style.backgroundImage = originals[i];
+    // items[i].style.width = "50%";
+    // items[i].style.height = "50%";
   });
 }
 //
