@@ -6,14 +6,14 @@ handlers:
 - url: /leaf\.ico
   static_files: leaf.ico
   upload: leaf\.ico
-- url: /scripts
-  static_dir: scripts
 - url: /styles
   static_dir: styles
 - url: /media
   static_dir: media
 - url: /scripts
   static_dir: scripts
+- url: /static
+  static_dir: static
 - url: .*
   script: main.app
 
