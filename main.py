@@ -6,7 +6,7 @@ import io
 from google.appengine.api import users, images
 from models import *
 from get_rep_data import *
-from PIL import Image
+#from PIL import Image
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
