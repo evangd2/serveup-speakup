@@ -7,7 +7,7 @@ class ApiKey(ndb.Model):
 class User(ndb.Model):
     name = ndb.StringProperty(required=True)
     address = ndb.StringProperty()
-    representatives = ndb.KeyProperty(repeated=True)
+    photo = ndb.BlobKeyProperty()
 
 '''class Address(ndb.Model):
     line1 = ndb.StringProperty(required=True)

@@ -36,14 +36,18 @@
 
 <div id="User">
       <div id="profile_pic">
-        <img src="/media/plant.png" />
+        <img src="{{photo_url}}" width=128 height=128/>
       </div>
-      <div id="signed_in"><strong> Signed in as: {{username}} </strong></div>
-      <div><a href="{{signout_link}}">Sign Out</a></div>
-      <div><form method="post" action="/welcome" enctype="multipart/form-data">
+      <div id="user_status">
+        <p><strong>Signed in as: {{username}}</strong><p>
+        <a href="{{signout_link}}">Sign Out</a>
+      </div>
+      <div id="file_upload">
+        <form method="post" action="/welcome" enctype="multipart/form-data">
         <div><input type="file" name="upload_photo"></div>
         <div><input type="submit" value="Change profile photo"></div>
-      </form></div>
+      </form>
+      </div>
      </div>
 
 <div id="Content">
