@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,700');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Source+Sans+Pro');
 
 #Home, #Service, #Reps, #News, #Events, #Content_left, #Content_right{
   background-size: cover;
@@ -10,7 +11,9 @@
   font-size: 20px;
 
 }
-
+#Title, #Home, #Events, #News, #Service, #Reps {
+  text-shadow: 1px 1px 1px black;
+}
 .title {
   font-family: 'Dancing Script', bold;
   font-size: 50px;
@@ -26,6 +29,10 @@
   position: absolute;
   height: 15%;
   width: 10%;
+}
+#plant {
+  height: auto;
+  width: 5%;
 }
 
 #img {
@@ -46,9 +53,10 @@
 a{
   text-decoration: none;
   color: inherit;
-  text-shadow: 1px 1px 1px black;
 }
-
+#signout_link, #signed_in {
+  text-shadow: 1px 1px 1px white;
+}
 #User {
   background-color: lavender;
   grid-column: 1 / span 3;
@@ -143,7 +151,7 @@ a{
 }
 
 div {
-  font-family: Palatino Linotype;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   text-align: center;
   padding: 8px;
   border: 2px solid white;
