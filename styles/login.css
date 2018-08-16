@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
 body {
-  background-image: url("http://bdfjade.com/data/out/56/5631356-background-image.png");
+  background-image: url("/media/protester.jpg");
+  background-size: cover;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -37,6 +38,7 @@ body {
   font-family: 'Dancing Script', cursive;
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
+  text-align: center;
 }
 p {
   font-family: 'M PLUS Rounded 1c', sans-serif;
