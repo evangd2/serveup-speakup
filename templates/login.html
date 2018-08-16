@@ -2,19 +2,17 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="/media/favicon.ico?v1">
     <link rel="stylesheet" href="/styles/login.css">
     <title></title>
   </head>
   <body>
-    <video autoplay muted loop id="myVideo">
-      <source src="rain.mp4" type="video/mp4">
-    </video>
     <div class="content">
       {%if email_address%}
-        <form method="post" action="/login">
+        <form method="post" action="/">
           <p id="welcome_line">Welcome to our site, {{email_address}}! Please sign up and enter username below.</p>
           <input type="text" name="name">
-          <input id="button" type="submit">
+          <input type="submit">
         </form>
         <a id="sign_out" href="{{signout_link}}">Sign Out</a>
       {%else%}
