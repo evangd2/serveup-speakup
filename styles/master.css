@@ -92,38 +92,36 @@ a{
 }
 
 #Events{
-  background-color: yellow;
   grid-column: 8;
   grid-row: 3;
   color: white;
-  background-image: url(https://images.all-free-download.com/images/graphicthumb/golden_texture_hd_picture_3_170578.jpg);
+  /* background-image: url(https://images.all-free-download.com/images/graphicthumb/golden_texture_hd_picture_3_170578.jpg); */
   /* background-image: url(https://images.pexels.com/photos/768897/pexels-photo-768897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
 }
 
 #News{
-  background-color: red;
   grid-column: 7;
   grid-row: 3;
   color: white;
-  background-image: url(http://longwallpapers.com/Desktop-Wallpaper/red-texture-wallpapers-high-definition-For-Desktop-Wallpaper.jpg);
+  /* background-image: url(http://longwallpapers.com/Desktop-Wallpaper/red-texture-wallpapers-high-definition-For-Desktop-Wallpaper.jpg); */
   /* background-image: url(https://images.pexels.com/photos/1083895/pexels-photo-1083895.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
+
 }
 
 #Reps{
-  background-color: purple;
   grid-column: 6;
   grid-row: 3;
   color: white;
   background-color: white;
-  background-image: url(https://image.freepik.com/free-photo/artistic-purple-watercolor-texture_1048-4639.jpg);
+  /* background-image: url(https://image.freepik.com/free-photo/artistic-purple-watercolor-texture_1048-4639.jpg); */
   /* background-image: url(https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
 
 }
 
-.menu:hover {
-  opacity: 0.6;
+/* .menu:hover {
+  opacity: 0;
   transition: 1s;
-}
+} */
 
 .menu{
   text-shadow: 1px 1px 5px black;
@@ -131,21 +129,19 @@ a{
 
 
 #Service{
-  background-color: lightblue;
   grid-column: 5;
   grid-row: 3;
   color: white;
-  background-image: url(https://image.freepik.com/free-photo/texture-with-blue-paint_1048-5111.jpg);
+  /* background-image: url(https://image.freepik.com/free-photo/texture-with-blue-paint_1048-5111.jpg); */
   /* background-image: url(https://images.pexels.com/photos/60005/forget-me-not-flower-meadow-wild-flower-60005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
 
 }
 
 #Home{
-  background-color: green;
   grid-column: 4;
   grid-row: 3;
   color: white;
-  background-image: url(http://www.pptback.com/uploads/green-blurry-dots-backgrounds-powerpoint.jpg);
+  /* background-image: url(http://www.pptback.com/uploads/green-blurry-dots-backgrounds-powerpoint.jpg); */
  /* background-image: url(https://images.pexels.com/photos/580900/pexels-photo-580900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
 
 }
@@ -163,7 +159,6 @@ div {
 
 
 body{
-  background-image-opacity: 0.5;
   height: 80vh;
   margin: 0;
   padding: 0;
