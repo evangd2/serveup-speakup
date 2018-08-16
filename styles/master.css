@@ -17,6 +17,11 @@
   color: black;
 }
 
+.welcome_pics {
+  height: 50px;
+  width: 50px;
+}
+
 #plant{
   position: absolute;
   height: 15%;
