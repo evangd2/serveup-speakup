@@ -62,11 +62,11 @@ class NewsHandler(webapp2.RequestHandler):
             news_template = jinja_env.get_template("/templates/news.html")
             api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
             category = self.request.get("category")
-            news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
+            news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&pageSize=20&sortBy=popularity&apikey={}".format(category.lower().replace(" ", ""), api_key))
             dict_news = json.loads(news.content)
             if "totalResults" in dict_news:
                 if dict_news['totalResults'] < 3:
-                    news = urlfetch.fetch("https://newsapi.org/v2/everything?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
+                    news = urlfetch.fetch("https://newsapi.org/v2/everything?q={}&pageSize=20&sortBy=popularity&apikey={}".format(category.lower().replace(" ", ""), api_key))
             self.response.write(news_template.render({
                 "news": json.loads(news.content.decode('utf-8')),
                 "username": user.name,
