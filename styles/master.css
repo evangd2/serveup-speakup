@@ -58,6 +58,7 @@ a{
   text-shadow: 1px 1px 1px white;
 }
 #User {
+  background-color: lavender;
   grid-column: 1 / span 3;
   grid-row: 3;
 }
