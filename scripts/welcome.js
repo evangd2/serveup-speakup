@@ -31,11 +31,11 @@ item = document.querySelector("div#Home");
 item.style.backgroundImage = "url('https://images.pexels.com/photos/580900/pexels-photo-580900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
 
 swappers = {
-  "Events": "/media/events.png",
-  "News": "/media/news.png",
-  "Service": "/media/heartpt2.png",
-  "Reps": "/media/people.png",
-  "Home": "/media/home.png",
+  "Events": "/media/colorevents.png",
+  "News": "/media/colornews.png",
+  "Service": "/media/colorheart.png",
+  "Reps": "/media/colorreps.png",
+  "Home": "/media/colorhome.png",
 }
 
 

@@ -3,30 +3,7 @@
 }
 
 #User {
-  display: grid;
-  grid-template-rows: 64px 64px;
-  grid-template-columns: 128px auto;
-}
-
-#User div{
-  margin: 0;
-  border: none;
-  line-height: 0.6em;
-}
-
-#profile_pic{
-  grid-row:1 / span 2;
-  grid-column: 1;
-}
-
-#user_status{
-  grid-row:1;
-  grid-column: 2;
-}
-
-#file_upload{
-  grid-row:2;
-  grid-column: 2;
+  background-color: lavender;
 }
 
 #Content{
