@@ -1,10 +1,12 @@
 import os
 import webapp2
 import jinja2
+import io
 
-from google.appengine.api import users
+from google.appengine.api import users, images
 from models import *
 from get_rep_data import *
+#from PIL import Image
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -47,13 +49,30 @@ class HomeHandler(webapp2.RequestHandler):
         user = User.get_by_id(google_user.user_id()) if google_user else None
         if user:
             welcome_template = jinja_env.get_template("/templates/welcome.html")
+            #photo_url = images.get_serving_url(user.photo, secure_url=True) if user.photo else "/media/plant.png"
             self.response.write(welcome_template.render({
                 "username": user.name,
-                "signout_link": users.create_logout_url("/")
+                "signout_link": users.create_logout_url("/"),
+                "photo_url": "/media/plant.png"
             }))
         else:
             self.redirect("/")
+    def post(self):
+        pass
+        '''google_user = users.get_current_user()
+        user = User.get_by_id(google_user.user_id()) if google_user else None
+        if user:
+            pic_str = self.request.get("upload_photo")
+            profile_pic = Image.open(io.BytesIO(pic_str))
+            profile_pic = profile_pic.resize((128, 128))
 
+            with io.BytesIO() as output:
+                profile_pic.save(output, format="JPEG")
+                pic_str = output.getvalue()
+
+            user.photo = pic_str
+            user.put()
+            self.redirect("/welcome")'''
 class NewsHandler(webapp2.RequestHandler):
     def get(self):
         google_user = users.get_current_user()
@@ -62,11 +81,11 @@ class NewsHandler(webapp2.RequestHandler):
             news_template = jinja_env.get_template("/templates/news.html")
             api_key = ApiKey.query().filter(ApiKey.name == "NEWS").get().value
             category = self.request.get("category")
-            news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
+            news = urlfetch.fetch("https://newsapi.org/v2/top-headlines?q={}&pageSize=20&sortBy=popularity&apikey={}".format(category.lower().replace(" ", ""), api_key))
             dict_news = json.loads(news.content)
             if "totalResults" in dict_news:
                 if dict_news['totalResults'] < 3:
-                    news = urlfetch.fetch("https://newsapi.org/v2/everything?q={}&pageSize=20&apikey={}".format(category.lower().replace(" ", ""), api_key))
+                    news = urlfetch.fetch("https://newsapi.org/v2/everything?q={}&pageSize=20&sortBy=popularity&apikey={}".format(category.lower().replace(" ", ""), api_key))
             self.response.write(news_template.render({
                 "news": json.loads(news.content.decode('utf-8')),
                 "username": user.name,

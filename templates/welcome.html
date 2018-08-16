@@ -10,8 +10,7 @@
   <body>
 
 <div id="Title">
-  <h1> Serve Up, Speak Up<img id="plant" src="/media/logo.png" height=5% width=7%>
-  </h1>
+      <h1>Serve Up, Speak Up</h1>
     </div>
 
 <div id="Home" class="menu">
@@ -36,14 +35,24 @@
      </div>
 
 <div id="User">
-      <h3 id="signed_in"> Signed in as: {{username}} </h3>
-      <a id="signout_link" href="{{signout_link}}">Sign Out</a>
+      <div id="profile_pic">
+        <img src="{{photo_url}}" width=128 height=128/>
+      </div>
+      <div id="user_status">
+        <p><strong>Signed in as: {{username}}</strong><p>
+        <a href="{{signout_link}}">Sign Out</a>
+      </div>
+      <div id="file_upload">
+        <form method="post" action="/welcome" enctype="multipart/form-data">
+        <div><input type="file" name="upload_photo" accept="image/*"></div>
+        <div><input type="submit" value="Change profile photo"></div>
+      </form>
+      </div>
      </div>
 
 <div id="Content">
       <h2 class="title"> Welcome to Serve Up, Speak Up </h2>
 
-      <img class="welcome_pics" src="/media/home.png">
 
       <p>Serve Up, Speak Up is a resource for people who want to become more involved in activism and social justice, but don't know how or where to start.</p>
 
@@ -76,9 +85,6 @@
       </div>
 
       <div id="Footer"> <p>Copyright © 2018</p> <p>(▀̿Ĺ̯▀̿ ̿) Alejandro's Angels (▀̿Ĺ̯▀̿ ̿)</p> </div>
-
-
-      <script src="/scripts/welcome.js"></script>
 
   </body>
 </html>

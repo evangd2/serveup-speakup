@@ -11,7 +11,7 @@ body {
   height: 100vh;
 }
 #sign_in, #login_title, #welcome_line, #sign_out {
-  text-shadow: 1px 1px 1px blue;
+  text-shadow: 1px 1px 1px rgb(172, 128, 131);
   color: black;
 }
 #sign_in {
@@ -24,7 +24,7 @@ body {
   text-align: center;
 }
 #sign_in:hover, #sign_out:hover {
-  color: blue;
+  color: rgb(172, 128, 131);
   text-shadow: 1px 1px 1px black;
 }
 #sign_out {
