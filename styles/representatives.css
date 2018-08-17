@@ -1,4 +1,6 @@
 #Title {
+  background-image: url(https://www.missouriruralist.com/sites/missouriruralist.com/files/styles/article_featured_standard/public/purple-paint-hunting-warning-WARD-0925W1-1943A-1540x800_2.jpg?itok=7TrA_HlX);
+  /* background-image: url(https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2016/08/purple-paint-1.jpg */
   background-color: rgb(57, 0, 115);
 }
 
@@ -11,7 +13,8 @@
 }
 
 #Content_left, #Content_right {
-  background-image: url(https://image.freepik.com/free-photo/artistic-purple-watercolor-texture_1048-4639.jpg);
+  background-image: url(https://previews.123rf.com/images/pressmaster/pressmaster0903/pressmaster090300073/4467485-painted-background-colored-in-violet-purple-blue-and-pink.jpg);
+  /* url(https://image.freepik.com/free-photo/artistic-purple-watercolor-texture_1048-4639.jpg); */
   opacity: 0.5;
   grid-row: 4;
 }

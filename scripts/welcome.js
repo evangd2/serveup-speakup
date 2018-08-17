@@ -3,23 +3,30 @@ const items = document.querySelectorAll("div.menu");
 let item = null;
 
 item = document.querySelector("div#Events");
-item.style.backgroundImage = "url('https://images.pexels.com/photos/768897/pexels-photo-768897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
+item.style.backgroundImage = "url('/media/yellowpaintsingle.png')";
+// https://images.pexels.com/photos/768897/pexels-photo-768897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
 
 
 item = document.querySelector("div#News");
-item.style.backgroundImage = "url('https://images.pexels.com/photos/1083895/pexels-photo-1083895.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
+item.style.backgroundImage = "url('/media/redpaintsingle.png')";
+// https://images.pexels.com/photos/1083895/pexels-photo-1083895.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
 
 
 item = document.querySelector("div#Reps");
-item.style.backgroundImage = "url('https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
+item.style.backgroundImage = "url('/media/purplepaintsingle.png')";
+// https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
 
 
 item = document.querySelector("div#Service");
-item.style.backgroundImage = "url('https://images.pexels.com/photos/60005/forget-me-not-flower-meadow-wild-flower-60005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
+item.style.backgroundImage = "url('/media/bluepaintsingle.png')";
+
+// https://i2.wp.com/www.onlygfx.com/wp-content/uploads/2017/07/blue-watercolor-brush-stroke-2-1.png')"
+// https://images.pexels.com/photos/60005/forget-me-not-flower-meadow-wild-flower-60005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
 
 
 item = document.querySelector("div#Home");
-item.style.backgroundImage = "url('https://images.pexels.com/photos/580900/pexels-photo-580900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
+item.style.backgroundImage = "url('/media/greenpaintsingle.png')";
+// https:images.pexels.com/photos/580900/pexels-photo-580900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')";
 
 swappers = {
   "Events": "/media/colorevents.png",

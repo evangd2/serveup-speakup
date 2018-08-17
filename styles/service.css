@@ -1,5 +1,7 @@
 #Title {
-  background-color: rgb(0, 179, 179);
+  background-image: url("/media/bluefence.png");
+
+  /* background-color: rgb(0, 179, 179); */
 }
 
 #Content{
@@ -13,7 +15,9 @@
 
 
 #Content_left, #Content_right {
-  background-image: url(https://image.freepik.com/free-photo/texture-with-blue-paint_1048-5111.jpg);
+  background-image: url("/media/bluepaint.png");
+  /* background-image: url("/media/servicebackground.jpg"); */
+  /* background-image: url(https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
   opacity: 0.5;
   grid-row: 4;
 }
