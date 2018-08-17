@@ -9,6 +9,8 @@
 #Home, #Service, #Reps, #News, #Events{
   font-family: 'Dancing Script', bold;
   font-size: 20px;
+  transition-duration: 0.5s;
+
 
 }
 #Title, #Home, #Events, #News, #Service, #Reps {
