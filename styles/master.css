@@ -8,13 +8,16 @@
 
 #Home, #Service, #Reps, #News, #Events{
   font-family: 'Dancing Script', bold;
-  font-size: 24px;
+  font-size: 26px;
   transition-duration: 2s;
-  color: black;
+  color: white;
+  /* opacity: 0.5; */
+
 
 }
 #Title, #Home, #Events, #News, #Service, #Reps {
   text-shadow: 1px 1px 5px black;
+
 }
 .title {
   font-family: 'Dancing Script', bold;
@@ -38,7 +41,6 @@
 }
 
 #img {
-  opacity: 0.5;
   filter: alpha(opacity=50);}
 
 #Title {
