@@ -147,7 +147,6 @@ a{
  /* background-image: url(https://images.pexels.com/photos/580900/pexels-photo-580900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
 
 }
-
 div {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   text-align: center;
@@ -157,9 +156,10 @@ div {
   grid-gap: 5px;
 
 }
-
-
-
+img.plant_logo {
+  height: auto;
+  width: 8%;
+}
 body{
   height: 80vh;
   margin: 0;
