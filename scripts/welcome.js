@@ -62,5 +62,5 @@ for (let i = 0; i < items.length; i++) {
     console.log("you mouse out'ed out of item number " + i);
     items[i].style.backgroundImage = originals[i];
 
-});
+  });
 }
