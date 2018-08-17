@@ -32,7 +32,8 @@
           <h3><a href= "/representatives"> Representatives </a> </h3>
        </div>
        <div id="User">
-         <h3> Signed in as: {{username}} </h3>
+
+         <h3><img id="left_pic" src="/media/plant.png"> Signed in as: {{username}} <img id="right_pic" src="/media/plant.png"> </h3>
          <a href="{{signout_link}}">Sign Out</a>
       </div>
       <div id="Content">
@@ -50,7 +51,7 @@
         </section>
         <section>
           {% for article in news.articles %}
-          <p><h1><a href="{{ article.url }}" target="_blank"> {{ article.title }} </a></h1> by {{ article.author }}</p>
+          <p><h1><a id="article_titles" href="{{ article.url }}" target="_blank"> {{ article.title }} </a></h1> by {{ article.author }}</p>
           <p> {{ article.publishedAt }} </p>
           <p> {{ article.description }} </p>
           <hr>

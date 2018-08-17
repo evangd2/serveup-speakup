@@ -23,3 +23,7 @@
   opacity: 0.5;
   grid-row: 4;
 }
+
+#article_titles {
+  font-size: 28px;
+}

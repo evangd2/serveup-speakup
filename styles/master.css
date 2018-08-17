@@ -20,6 +20,16 @@
   color: black;
 }
 
+#left_pic, #right_pic{
+  height: 20px;
+  width: auto;
+
+  /* padding-top: 20px; */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
 .welcome_pics {
   height: 50px;
   width: 50px;
@@ -122,6 +132,11 @@ a{
   opacity: 0;
   transition: 1s;
 } */
+
+div.menu {
+  opacity: 1.0;
+  transition: opacity .5s;
+}
 
 .menu{
   text-shadow: 1px 1px 5px black;
