@@ -1,5 +1,7 @@
 #Title {
-  background-color: rgb(79, 153, 0);
+  background-image: url("/media/greenfence.png");
+
+  /* background-color: rgb(79, 153, 0); */
 }
 
 #User {
@@ -19,7 +21,7 @@
 }
 
 #Content_left, #Content_right {
-  background-image: url(http://www.pptback.com/uploads/green-blurry-dots-backgrounds-powerpoint.jpg);
+  background-image: url("/media/greenpaint.png");
   opacity: 0.6;
   grid-row: 4;
 }
